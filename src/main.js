@@ -2,4 +2,13 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-createApp(App).use(router).mount('#app')
+
+const app = createApp(App)
+app.use(router)
+
+// router.beforeEach(function(to, from, next) {
+//     console.log(to)
+//     console.log(from)
+//     next()
+// })
+app.mount('#app')
