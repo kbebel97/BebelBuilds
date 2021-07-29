@@ -1,39 +1,41 @@
 <template>
   <div id="gallery-container">
     <!-- Kitchen Carousel -->
-    <div class="carousel">
+    <div id="kitchen" ref="Kitchen" class="carousel">
       <div v-for="(kitchenImage, index) in kitchenImages" :key="kitchenImage" class="carousel-slide">
-        <h1>Kitchen</h1>
+        <h1 style="position: relative; background: white; color: black; display: flex; justify-content: space-between">
+        <div>Kitchen</div>
+        <dropdown @changeslide="scroll" :items="rooms"></dropdown>
+        </h1>
         <transition :name="direction">
           <div v-show="kitchenSlide === index" class="image-container">
             <img :src="kitchenImages[index].img"/>
             <button @click="next('kitchen')" class="next" style="top: 50%;">
-              <span class="material-icons" style="color: white; font-size: 3rem">arrow_forward_ios</span>
+              <span class="material-icons">arrow_forward_ios</span>
               </button>
             <button @click="prev('kitchen')" class="prev" style="top: 50%;">
-              <span class="material-icons" style="transform: rotateZ(180deg); color: white; font-size: 3rem">arrow_forward_ios</span>
+              <span class="material-icons" style="transform: rotateZ(180deg);m">arrow_forward_ios</span>
             </button>
           </div>
         </transition>
       </div>
     </div>
-    <hr class="rounded">
     <!-- Bathroom Carousel -->
-    <div class="carousel">
+    <div id="bathroom" ref="Bathroom" class="carousel">
       <div v-for="(bathroomImage, index) in bathroomImages" :key="bathroomImage" class="carousel-slide">
-        <h1>Bathroom</h1>
+        <h1 style="position: relative; background: white; color: black">Bathroom</h1>
         <transition :name="direction">
-          <div v-show="bathroomSlide === index" class="image-container">
-            <div style="display: inline-block; position: relative">
-              <label class="image-label" v-if="index == 14">&nbsp;Before&nbsp;</label>
-              <label class="image-label" v-if="index == 15">&nbsp;After&nbsp;</label>
-              <img :src="bathroomImages[index].img"/>
-            </div>
+          <div v-show="bathroomSlide === index" class="image-container" >
+              <div style="display: inline-block; position: relative;">
+                <label class="image-label" v-if="index == 14">&nbsp;Before&nbsp;</label>
+                <label class="image-label" v-if="index == 15">&nbsp;After&nbsp;</label>
+                <img :src="bathroomImages[index].img"/>
+              </div>
             <button @click="next('bathroom')" class="next" style="top: 50%;">
-              <span class="material-icons" style="color: white; font-size: 3rem">arrow_forward_ios</span>
+              <span class="material-icons">arrow_forward_ios</span>
               </button>
             <button @click="prev('bathroom')" class="prev" style="top: 50%;">
-              <span class="material-icons" style="transform: rotateZ(180deg); color: white; font-size: 3rem">arrow_forward_ios</span>
+              <span class="material-icons" style="transform: rotateZ(180deg);">arrow_forward_ios</span>
             </button>
           </div>
         </transition>
@@ -60,12 +62,15 @@
   </div>
 </template>
 <script>
-  let bathroom = require("../../public/bathroom.json")
+  import Dropdown from '../components/Dropdown.vue'
   export default {
+    components: { Dropdown },
     data(){
       return {
-        bathroomJson: bathroom,
-
+        rooms: [
+          {title: 'Kitchen'},
+          {title: 'Bathroom'}
+        ],
         bathroomImagesMobile: [],
         bedroomImagesMobile: [],
         kitchenImagesMobile: [],
@@ -119,6 +124,13 @@
       window.addEventListener("resize", this.eventHandler)
     }, 
     methods: {
+      scroll(value){
+        const el = this.$refs[value.title]
+        if(el) {
+          el.scrollIntoView({behavior: 'smooth'})
+        }
+        // carousel.scrollTop = carousel.scrollHeight;
+      },
       eventHandler(){
         if(window.innerWidth < 480){
           this.kitchenImages = this.kitchenImagesMobile
@@ -220,6 +232,10 @@
 
 </script>
 <style scoped>
+
+.material-icons{
+  color: white; font-size: 3rem;
+}
    hr {
     border: 0;
     clear:both;
@@ -229,7 +245,7 @@
     width: 100%;
     }
   #gallery-container{
-    height: calc(100% - 68px); background-image: linear-gradient(#F58F43 , white); padding: 1%; border-top: black solid 1px;
+    height: calc(100% - 68px); border-top: black solid 1px;
   }
   /* hr.rounded {
   border-top: 3px solid gray;
@@ -247,7 +263,7 @@
     background: transparent;
   }
   h1 {
-    position: absolute; 
+    /* position: absolute; 
     bottom: top; 
     font-family: 'Roboto Condensed', sans-serif; 
     font-size: xx-large; 
@@ -258,7 +274,18 @@
     background: black; 
     color: white; 
     border-radius: 10px;
+    z-index: 1; */
+    /* background: white; */
+    padding: 8px 0px 8px 8px;
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: start;
+    position: absolute;
     z-index: 1;
+    background: transparent;
+    margin: 0;
   }
   button{
     border: none;
@@ -314,14 +341,42 @@
       to { transform: translateX(100%) }
   }
 
-  .image-container{ position: relative; height: 100%; width: 100%; padding-left: 2%; padding-right: 2%; display: flex; justify-content: center; align-items: center; }
-  .carousel-slide{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
-  .carousel{ position: relative; width: 100%; height: 100%; overflow: hidden; }
+  .image-container{ 
+    position: relative; 
+    height: calc(100% - 54px);
+    width: 100%; 
+    /* padding: 1%; */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .carousel-slide{ 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;  
+  }
+
+  .carousel{ 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    background-image: linear-gradient(black , white); 
+  }
 
   @media only screen and (max-width: 479px){ 
       #gallery-container{
         padding: 0;
       }
+      .material-icons{
+        font-size: 2rem;
+      }
+
     }
+/* background-image: linear-gradient(#F58F43 , white); */
 
 </style>

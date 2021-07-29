@@ -10,7 +10,7 @@
         <input type="text" v-model="phone" placeholder="Phone">
         <input type="password" name="website" style="display: none" ref="avoid-spam" autocomplete="off">
         <textarea v-model="desc" placeholder="Description (optional)"></textarea>
-        <button class="btn btn-outline-primary" :disabled="isDisabled" style="font-size: 1.5rem; font-family: 'Roboto Condensed', sans-serif;" type="submit">Submit</button>
+        <button class="btn btn-outline-dark" :disabled="isDisabled" style="font-size: 1.5rem; font-family: 'Roboto Condensed', sans-serif;" type="submit">Submit</button>
     </form>
 </div>
 </template>
@@ -103,10 +103,9 @@ export default {
 </script>
 
 <style scoped>
-    
 
     .form-container{
-        height: calc(100% - 68px); background-image: linear-gradient(to left, #F58F43 , white); display: flex; justify-content: center; align-items: center;
+        height: calc(100% - 68px); background-image: linear-gradient(to top right, black , white); display: flex; justify-content: center; align-items: center;
     }
     form {
         display: flex; flex-direction: column; width: 500px; background: white; border: black solid 1px; row-gap: 10px; padding: 10px;
@@ -115,14 +114,16 @@ export default {
         font-size: 2rem;
         height: 3rem;
         font-family: 'Roboto Condensed', sans-serif;
+        outline: black;
     }
     h1{
-        font-family: 'Roboto Condensed', sans-serif;  font-size: 2rem;
+        font-family: 'Roboto Condensed', sans-serif;  font-size: 2rem; margin-top: 8px;
     }
     h2 {
         font-family: 'Roboto Condensed', sans-serif;  font-size: 1.5rem; color: red; 
     }
     textarea{
+        outline: black;
         font-size: 2rem;
         height: 10rem;
         font-family: 'Roboto Condensed', sans-serif;
@@ -144,6 +145,12 @@ export default {
         flex-grow: 1;
         height: 100%;
     }
+    h1{
+        color:white
+    }
+    .btn-outline-dark{
+    color: white;
+}
 
     
 }

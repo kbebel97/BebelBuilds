@@ -79,19 +79,26 @@ export default {
     }
 
     #services-container {
-            height: calc(100% - 68px); background-image: linear-gradient(#F58F43 , white); padding: 1%; border-top: black solid 1px; display: flex; width: 100%;
+            height: calc(100% - 68px); background-image: linear-gradient(to top right, black,white); padding: 1%; border-top: black solid 1px; display: flex; width: 100%;
     }
     h1{
         font-family: 'Roboto Condensed', sans-serif; 
         font-style: bold; 
-        font-weight: bold; 
         font-size: 3rem;
         text-align: start;
+        color: white
     }
     h3{
-        font-family: 'Roboto Condensed', sans-serif; 
+        font-family: 'Roboto Condensed', sans-serif; color: white
     }
     li {
         text-align: start;
+        list-style-type: square;
+    }
+
+    @media only screen and (max-width: 479px){ 
+      h1{
+          text-align: center;
+      }
     }
 </style>

@@ -149,6 +149,7 @@ export default {
   color: black;
 }
 
+#nav a:hover,
 #nav a.router-link-exact-active {
   font-weight: bold;
 }

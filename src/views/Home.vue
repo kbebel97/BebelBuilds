@@ -4,7 +4,7 @@
       <h1>
       Bebel Builds 
       </h1>
-      <h3>Licensed and Insured residential contractor</h3>
+      <h3>Licensed and Insured Residential Contractor</h3>
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
           <h4>
           <div class="icon">
@@ -43,11 +43,14 @@ export default {
 }
 </script>
 <style scoped>
+h1{
+  color: white
+}
 h3{
-  font-weight: bold
+  font-weight: bold; color: white
 }
 h4 {
-  display: flex; width: 80%;
+  display: flex; width: 80%; color: white
 }
 .icon {
 flex: 1; text-align: center
@@ -57,7 +60,7 @@ flex: 1; text-align: center
 flex: 1.5; text-align: start; 
 }
 #home-container{
-height: calc(100% - 68px); display: flex; justify-content: center; align-items: center; flex-direction: column; background-image: linear-gradient(to right, #F58F43 , white);
+height: calc(100% - 68px); display: flex; justify-content: center; align-items: center; flex-direction: column; background-image: linear-gradient(to bottom right, black, white);
 }
 #home {
   width: fit-content; font-family: 'Roboto Condensed', sans-serif;
