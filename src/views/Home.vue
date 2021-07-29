@@ -4,8 +4,8 @@
       <h1>
       Bebel Builds 
       </h1>
-      <h2>Licensed and Insured Residential Contractor</h2>
-      <h3>Servicing the New York City area</h3>
+      <h2 style="padding: 0px 5px 0px 5px">Licensed and Insured Residential Contractor</h2>
+      <h3 style="padding: 0px 5px 0px 5px">Servicing the New York City area</h3>
         <div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
           <h4>
           <div class="icon">
@@ -18,19 +18,19 @@
           <div class="text">
             {{email}}
           </div>
-        </h4>
-        <h4>       
-          <div class="icon">
-            <a href="tel:9172245521">
-            <span class="material-icons" style="font-size: xx-large">
-              phone&nbsp;
-            </span>
-            </a>
-          </div>
-          <div class="text">
-            {{phone}}
-          </div>
-        </h4>
+          </h4>
+          <h4>       
+            <div class="icon">
+              <a href="tel:9172245521">
+              <span class="material-icons" style="font-size: xx-large">
+                phone&nbsp;
+              </span>
+              </a>
+            </div>
+            <div class="text">
+              {{phone}}
+            </div>
+          </h4>
         </div>
     </div>
   </div>
