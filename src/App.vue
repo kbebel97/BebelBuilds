@@ -10,7 +10,7 @@
     <div class="col-2 link pc" style="justify-content: center"><router-link to="/Services">Services</router-link></div>
     <div class="col-2 link pc" style="justify-content: center"><router-link to="/Gallery">Gallery</router-link></div>
     <div class="col-2 link pc" style="justify-content: center"><router-link to="/Contact">Contact</router-link></div>
-    <div class="col-10 link smart-device"><router-link to="/" style="display: flex; align-items: center; z-index: 4"><span class="material-icons" style="font-size: 3rem">roofing</span></router-link></div>
+    <div class="col-10 link smart-device"><router-link to="/" style="display: flex; align-items: center; z-index: 4; text-decoration: none "><span class="material-icons" style="font-size: 3rem">roofing</span></router-link></div>
     <div class="col-2 smart-device" style="justify-content: flex-end; align-items: center; text-decoration: none; z-index: 4"><span class="material-icons" style="font-size: 3rem; cursor: pointer" @click.stop="toggle">menu</span></div>
   </div>
   <div id="smart-device-menu" style="position: relative">

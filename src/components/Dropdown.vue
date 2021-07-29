@@ -1,10 +1,10 @@
 <template>
-    <div class="menu-item" @click="isOpen=!isOpen">
-        <span class="material-icons" style="color: black; font-size: fit-content; padding-right: 8px; cursor: pointer;">arrow_drop_down</span>        
+    <div class="menu-item" @click="toggle">
+        <span class="material-icons" style="color: black; font-size: 100%; padding-right: 8px; cursor: pointer; text-align: center">arrow_drop_down</span>        
         <transition name="fade" appear>   
             <div class="sub-menu" v-if="isOpen">
                 <div class="menu-item" v-for="(item, i) in items" :key="i">
-                    <div style="padding: 5px" @click="jumpTo(item)">
+                    <div style="padding: 5px; text-align: start" @click="jumpTo(item)">
                     <a @click.prevent href="">{{item.title}}</a>   
                     </div>
                 </div>
@@ -25,7 +25,21 @@ export default {
     methods: {
         jumpTo(slide){
             this.$emit('changeslide', slide)
+        },
+        toggle(){
+        if(this.isOpen) {
+          return this.hide()
         }
+            return this.show()
+        },
+        show () {
+            this.isOpen = true;
+                setTimeout(() => document.addEventListener('click',this.hide), 0);
+        },
+        hide () {
+            this.isOpen = false;
+            document.removeEventListener('click',this.hide);
+        },
     }
 }
 </script>
@@ -37,6 +51,9 @@ export default {
 }
 .menu-item{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-item .sub-menu{

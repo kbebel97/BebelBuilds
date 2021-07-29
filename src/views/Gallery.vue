@@ -4,7 +4,7 @@
     <div id="kitchen" ref="Kitchen" class="carousel">
       <div v-for="(kitchenImage, index) in kitchenImages" :key="kitchenImage" class="carousel-slide">
         <h1 style="position: relative; background: white; color: black; display: flex; justify-content: space-between">
-        <div>Kitchen</div>
+        <div style="padding: 8px 0px 8px 8px;">Kitchen</div>
         <dropdown @changeslide="scroll" :items="rooms"></dropdown>
         </h1>
         <transition :name="direction">
@@ -23,7 +23,11 @@
     <!-- Bathroom Carousel -->
     <div id="bathroom" ref="Bathroom" class="carousel">
       <div v-for="(bathroomImage, index) in bathroomImages" :key="bathroomImage" class="carousel-slide">
-        <h1 style="position: relative; background: white; color: black">Bathroom</h1>
+        <h1 style="position: relative; background: white; color: black">
+          <div style="padding: 8px 0px 8px 8px;">
+            Bathroom
+          </div>
+        </h1>
         <transition :name="direction">
           <div v-show="bathroomSlide === index" class="image-container" >
               <div style="display: inline-block; position: relative;">
@@ -276,7 +280,6 @@
     border-radius: 10px;
     z-index: 1; */
     /* background: white; */
-    padding: 8px 0px 8px 8px;
     color: white;
     font-size: xx-large;
     font-weight: bold;
